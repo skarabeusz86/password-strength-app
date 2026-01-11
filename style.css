@@ -1,0 +1,173 @@
+body {
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color: #e5e7eb;
+
+    min-height: 100vh;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container {
+    background: #020617;
+    padding: 30px;
+    width: 100%;
+    max-width: 420px;
+
+    border-radius: 14px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+
+
+h1 {
+    text-align: center;
+}
+
+
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 15px;
+    border-radius: 6px;
+    border: none;
+}
+
+
+.progress {
+    height: 10px;
+    background: #1e293b;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 6px;
+    transition: width 0.4s ease, background-color 0.3s ease;
+    box-shadow: 0 0 12px rgba(22,163,74,0.6);
+}
+
+
+
+#result {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+
+.password-wrapper input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 44px 12px 12px;
+    transition: box-shadow 0.2s ease, border 0.2s ease;
+}
+
+.password-wrapper input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #38bdf8;
+}
+
+#togglePassword {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+
+#togglePassword:hover {
+    color: #16a34a;
+    transform: scale(1.1);
+    opacity: 0.85;
+}
+
+
+#tips {
+    margin: 0;
+    padding-left: 18px;
+}
+
+
+#tips li {
+    font-size: 14px;
+    opacity: 0.9;
+    animation: tipIn 0.25s ease forwards;
+    opacity: 0;
+}
+
+
+.container {
+    animation: cardIn 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+
+@keyframes cardIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+p {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+
+p:not(:empty) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+p:empty {
+    opacity: 0;
+    transform: translateY(-4px);
+}
+
+
+label {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    background: #020617;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+}
+
+select:focus {
+    outline: none;
+    border-color: #38bdf8;
+}
