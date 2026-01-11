@@ -1,3 +1,9 @@
+[![PWA Ready](https://img.shields.io/badge/PWA-Ready-brightgreen?logo=pwa)](https://skarabeusz86.github.io/secure-password-generator/)
+![Offline](https://img.shields.io/badge/Offline-Supported-success)
+![Client Side](https://img.shields.io/badge/Client--Side-Only-blue)
+![Profile views](https://komarev.com/ghpvc/?username=skarabeusz86&color=blue)
+
+
 # 🔐 Password Strength Analyzer (PWA)
 
 Offline **AppSec tool** do analizy siły hasła, entropii oraz szacowanego czasu złamania metodą brute‑force.
