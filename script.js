@@ -55,10 +55,10 @@ function analyzePassword(password) {
     let charsetSize = 0;
 
     if (password.length >= 8) score++; else addTip("Minimum 8 znaków");
-    if (/[a-z]/.test(password)) { score++; charsetSize += 26; } else addTip("Dodaj małe litery");
-    if (/[A-Z]/.test(password)) { score++; charsetSize += 26; } else addTip("Dodaj wielkie litery");
-    if (/[0-9]/.test(password)) { score++; charsetSize += 10; } else addTip("Dodaj cyfry");
-    if (/[^A-Za-z0-9]/.test(password)) { score++; charsetSize += 32; } else addTip("Dodaj znak specjalny");
+    if (/[a-z]/.test(password)) { score++; charsetSize += 26; } else addTip("Add lowercase letters");
+    if (/[A-Z]/.test(password)) { score++; charsetSize += 26; } else addTip("Add capital letters");
+    if (/[0-9]/.test(password)) { score++; charsetSize += 10; } else addTip("Add numbers");
+    if (/[^A-Za-z0-9]/.test(password)) { score++; charsetSize += 32; } else addTip("Add a special character");
 
     const entropy = Math.log2(Math.pow(charsetSize || 1, password.length));
     const attackSpeed = ATTACK_SPEEDS[attackModeSelect.value];
@@ -90,33 +90,33 @@ function updateUI({ score, crackTimeSeconds }) {
 
     if (score <= 2) {
         progressBar.style.background = "#dc2626";
-        result.textContent = "❌ Słabe hasło";
+        result.textContent = "❌ Weak password";
     } else if (score === 3) {
         progressBar.style.background = "#facc15";
-        result.textContent = "⚠️ Średnie hasło";
+        result.textContent = "⚠️ Average password";
     } else {
         progressBar.style.background = "#16a34a";
-        result.textContent = "✅ Silne hasło";
+        result.textContent = "✅ Strong password";
     }
 
     const modeLabel = attackModeSelect.options[attackModeSelect.selectedIndex].text;
     crackTimeEl.textContent =
-        `⏱️ Szacowany czas złamania (${modeLabel}): ${formatTime(crackTimeSeconds)}`;
+        `⏱️ Estimated fracture time (${modeLabel}): ${formatTime(crackTimeSeconds)}`;
 }
 
 function updateBreachUI(compromised) {
     if (compromised) {
-        breachEl.textContent = "🚨 Hasło znajduje się w lokalnej bazie popularnych haseł!";
+        breachEl.textContent = "🚨 The password is in the local database of popular passwords!";
         breachEl.style.color = "#dc2626";
     } else {
-        breachEl.textContent = "ℹ️ Nie znaleziono w lokalnej bazie popularnych haseł";
+        breachEl.textContent = "ℹ️ No popular terms found in local database";
         breachEl.style.color = "#38bdf8";
     }
 }
 
 function formatTime(seconds) {
     const years = seconds / 31536000;
-    if (years > 100) return "> 100 lat (praktycznie niełamliwe)";
+    if (years > 100) return "> 100 lat (virtually unbreakable)";
     if (years >= 1) return `${Math.floor(years)} lat`;
     if (seconds >= 86400) return `${Math.floor(seconds / 86400)} dni`;
     if (seconds >= 3600) return `${Math.floor(seconds / 3600)} godzin`;
